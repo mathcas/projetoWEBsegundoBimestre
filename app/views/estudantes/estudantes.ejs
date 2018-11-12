@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Lista de Estudantes</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	 crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<section class="container">
+		<h1 class="text-center">Lista de Estudantes</h1>
+		<table class="table">
+			<tr>
+				<td>Id</td>
+				<td>Nome</td>
+				<td>Cidade</td>
+				<td>Data de Nascimento</td>
+				<td>Nota</td>
+			</tr>
+			<% for(let i=0; i<estudantes.length; i++) {%>
+			<tr>
+				<td>
+					<%= estudantes[i].idestudante %>
+				</td>
+				<td>
+					<a href="/estudante?idestudante=<%= estudantes[i].idestudante %>"><%= estudantes[i].nome %></a>
+				</td>
+				<td>
+					<%= estudantes[i].cidade %>
+				</td>
+				<td>
+					<%= estudantes[i].data_nasc %>
+				</td>
+				<td>
+					<%= estudantes[i].nota %>
+				</td>
+			</tr>
+			<% } %>
+		</table>
+	</section>
+
+</body>
+
+</html>
