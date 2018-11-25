@@ -3,6 +3,11 @@ module.exports = function(){
         let sql = 'select * from boards';
         connection.query(sql, callback);
     }
+
+    this.getCards = function(connection, callback){
+        let sql = 'select * from cards where boardID = 1';
+        connection.query(sql, callback);
+    }
     // this.getEstudante = function(connection, id, callback){
     //     let sql = 'select * from estudantes where idestudante='+id;
     //     connection.query(sql, callback);

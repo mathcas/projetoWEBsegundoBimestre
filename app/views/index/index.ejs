@@ -25,10 +25,10 @@
         </div>
 
         <ul class="list-unstyled components">
-          <% for(let i=0; i<conteudo.length; i++) {%>
-            <% var obj = conteudo[0]; %>
-            <% console.log(obj[i].name);%>
-            <li><a href=""><%obj[0].name%></a></li>
+          <%let obj = boards[0];%>
+          <% for(let i = 0; i < obj.length; i++) {%>
+              <%console.log(obj[i]);%>
+              <li><a id="<%= obj[i].ID%>" href=""><%= obj[i].name %></a></li>
           <% } %>
           <li class="active"></li>
         </ul>

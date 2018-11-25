@@ -78,21 +78,25 @@ module.exports.boardListar = function (app, req, res) {
 
     var stack = [];
 
-    var functionOne = function(callback) {
+    var loadBoardList = function(callback) {
         indexModel.getBoards(connection, callback);
     }
 
-    stack.push(functionOne);
+    var loadCards = function(callback) {
+        indexModel.getCards(connection, callback);
+    }
+
+    stack.push(loadBoardList);
+    stack.push(loadCards);
 
     async.parallel(stack, function(error, result) {
 
         if (error) { console.log("Erro"); console.log(error) }
         console.log("----------------------------");
-        console.log(result);
-        console.log(result[0]);
+        console.log(result[1]);
         console.log("----------------------------");
 
-        res.render('index/index', {conteudo: result[0]});
+        res.render('index/index', {boards: result[0],});
       });
 }
 
