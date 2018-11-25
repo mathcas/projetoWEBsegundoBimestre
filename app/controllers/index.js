@@ -82,12 +82,23 @@ module.exports.boardListar = function (app, req, res) {
         indexModel.getBoards(connection, callback);
     }
 
-    var loadCards = function(callback) {
-        indexModel.getCards(connection, callback);
+    var loadFirstColumn = function(callback) {
+        indexModel.loadFirstColumn(connection, callback);
     }
 
+    var loadSecondColumn = function(callback) {
+        indexModel.loadSecondColumn(connection, callback);
+    }
+
+    var loadThirdColumn = function(callback) {
+        indexModel.loadThirdColumn(connection, callback);
+    }
+
+
     stack.push(loadBoardList);
-    stack.push(loadCards);
+    stack.push(loadFirstColumn);
+    stack.push(loadSecondColumn);
+    stack.push(loadThirdColumn);
 
     async.parallel(stack, function(error, result) {
 
@@ -96,7 +107,7 @@ module.exports.boardListar = function (app, req, res) {
         console.log(result[1]);
         console.log("----------------------------");
 
-        res.render('index/index', {boards: result[0],});
+        res.render('index/index', {boards: result[0], column1: result[1], column2: result[2], column3: result[3]});
       });
 }
 
