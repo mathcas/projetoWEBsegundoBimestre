@@ -4,8 +4,8 @@ let connMySQL = function () {
 	console.log("Iniciada a conexão com o banco");
     return connection = mysql.createConnection({
         host: 'localhost',
-        user: 'mathcas',
-        password: 'mathcas',
+        user: 'root',
+        password: '',
         database: 'dsw'
     });
 }

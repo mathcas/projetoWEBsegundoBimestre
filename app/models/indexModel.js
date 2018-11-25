@@ -1,14 +1,18 @@
 module.exports = function(){
-    this.getCards = function(connection, callback){
-        let sql = 'select * from conteudoprogramatico';
+    this.getBoards = function(connection, callback){
+        let sql = 'select * from boards';
         connection.query(sql, callback);
     }
     // this.getEstudante = function(connection, id, callback){
     //     let sql = 'select * from estudantes where idestudante='+id;
     //     connection.query(sql, callback);
     // }
-    this.storeCard = function(conteudo, connection, callback){
-        connection.query('insert into conteudoprogramatico set ?',conteudo, callback);
+    this.storeCard1 = function(conteudo, connection, callback){
+        connection.query('insert into cards set ?',conteudo, callback);
+    }
+
+    this.storeBoard = function(conteudo, connection, callback){
+        connection.query('insert into boards set ?',conteudo, callback);
     }
 
     this.deleteCard = function(id, connection, callback){
