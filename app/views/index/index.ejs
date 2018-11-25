@@ -26,10 +26,9 @@
 
         <ul class="list-unstyled components">
           <% for(let i=0; i<conteudo.length; i++) {%>
-            <% var obj = conteudo[i]; %>
-            <% for (var key in obj){%>
-            <li><a href=""><%= key.name%></a></li>
-          <% } %>
+            <% var obj = conteudo[0]; %>
+            <% console.log(obj[i].name);%>
+            <li><a href=""><%obj[0].name%></a></li>
           <% } %>
           <li class="active"></li>
         </ul>
