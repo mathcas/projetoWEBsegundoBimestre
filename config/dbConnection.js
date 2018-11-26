@@ -13,12 +13,3 @@ let connMySQL = function () {
 module.exports = function(){
 	return connMySQL;
 }
-
-// module.exports = function () {
-//     return connection = mysql.createConnection({
-//         host: 'localhost',
-//         user: 'root',
-//         password: 'Bordi1973',
-//         database: 'dsw'
-//     });
-// }

@@ -62,7 +62,7 @@ module.exports.storeCard2 = function (app, req, res) {
     //TITULO DO CARD
     let title = card.title2;
     //DESCRICAO DO CARD
-    let description = card.content1;
+    let description = card.content2;
 
     var values = {
         'title': title,
@@ -87,7 +87,7 @@ module.exports.storeCard3 = function (app, req, res) {
     //TITULO DO CARD
     let title = card.title3;
     //DESCRICAO DO CARD
-    let description = card.content1;
+    let description = card.content3;
 
     var values = {
         'title': title,

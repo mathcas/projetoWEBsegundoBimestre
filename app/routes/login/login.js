@@ -1,4 +1,8 @@
 module.exports = function(app) {
+	app.get('/login', function(req, res){
+		res.render('login/login', {erros: {}, usuario: {}});
+	});
+
 	app.post('/usuario/salvar', function(req, res) {
 		let usuario = req.body;
 
