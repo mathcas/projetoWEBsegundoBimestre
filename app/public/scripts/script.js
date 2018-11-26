@@ -29,23 +29,3 @@ $(document).ready(function() {
 function closeModal(modal) {    
     location.reload();
 }
-
-function excluirCard(idcandidato){
-
-    var r = confirm("Deseja excluir esse candidato?");
-
-    if(r == true){
-
-      var idRemover = 'http://andrebordignon.esy.es/php/deletacandidato.php?idcandidato='+ idcandidato;
-          $.ajax({
-            url: idRemover,
-              success:function(data){
-                alert(data);
-                  location.reload();
-              },
-              error: function(data){
-                alert(data);
-              }   
-          });
-    }
-}

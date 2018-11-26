@@ -34,8 +34,8 @@ CREATE TABLE IF NOT EXISTS cards (
 insert into boards(name, first_column, second_column, third_column)
 VALUES ('AAA', 'Coluna 1','Coluna 2','Coluna 3');
 
-insert into cards(title, STATE, description, boardID)
-VALUES ('Teste', 1,'Teste de descricao', 1);
-
 insert into boards(name, first_column, second_column, third_column)
 VALUES ('KANBAN', 'TO DO','WIP','DONE');
+
+insert into cards(title, STATE, description, boardID)
+VALUES ('Teste', 1,'Teste de descricao', 1);

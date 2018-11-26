@@ -1,6 +1,12 @@
 module.exports = function(){
+    //--------------- METODOS GETS ---------------
     this.getBoards = function(connection, callback){
         let sql = 'select * from boards';
+        connection.query(sql, callback);
+    }
+
+    this.getBoard = function(id, connection, callback){
+        let sql = 'select * from boards where ID = ' + id;
         connection.query(sql, callback);
     }
 
@@ -18,10 +24,7 @@ module.exports = function(){
         let sql = 'select * from cards where state = 3 and boardID = ' + id;
         connection.query(sql, callback);
     }
-    // this.getEstudante = function(connection, id, callback){
-    //     let sql = 'select * from estudantes where idestudante='+id;
-    //     connection.query(sql, callback);
-    // }
+//--------------- METODOS POSTs ---------------
     this.storeCard1 = function(conteudo, connection, callback){
         connection.query('insert into cards set ?',conteudo, callback);
     }
@@ -31,7 +34,7 @@ module.exports = function(){
     }
 
     this.deleteCard = function(id, connection, callback){
-        let sql = "delete from conteudoprogramatico where idconteudoprogramatico="+id;
+        let sql = "delete from cards where ID = " + id;
         connection.query(sql, callback);
     }
 

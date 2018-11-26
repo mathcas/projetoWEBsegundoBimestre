@@ -4,6 +4,10 @@ module.exports = function (app) {
 	});
 
 	app.post('/index/salvarBoard', function (req, res) {
-		app.app.controllers.index.boardSalvar(app, req, res);
+		app.app.controllers.index.storeBoard(app, req, res);
+	});
+
+	app.post('/index/storeCard1', function (req, res) {
+		app.app.controllers.index.storeCard1(app, req, res);
 	});
 }

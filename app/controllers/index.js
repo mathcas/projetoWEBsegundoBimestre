@@ -23,7 +23,7 @@ module.exports.cardSalvar1 = function (app, req, res) {
     });
 }
 
-module.exports.boardSalvar = function (app, req, res) {
+module.exports.storeBoard = function (app, req, res) {
     
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
@@ -45,7 +45,32 @@ module.exports.boardSalvar = function (app, req, res) {
     };
 
     indexModel.storeBoard(values, connection, function (error, result) {
-        res.redirect('/index');
+        res.redirect('/perfil');
+    });
+}
+
+module.exports.storeCard1 = function (app, req, res) {
+    
+    let connection = app.config.dbConnection();
+    let indexModel = app.app.models.indexModel;
+    let card = req.body;
+    var query = require('url').parse(req.url,true).query;
+    let id = query.ID;
+
+    //TITULO DO CARD
+    let title = card.title1;
+    //DESCRICAO DO CARD
+    let description = card.content1;
+
+    var values = {
+        'title': title,
+        'description': description,
+        'boardID': id,
+        'state': 1
+    };
+
+    indexModel.storeCard1(values, connection, function (error, result) {
+        res.redirect('/perfil');
     });
 }
 
@@ -58,20 +83,6 @@ module.exports.cardDeletar = function (app, req, res) {
     });
 }
 
-/*
-module.exports.boardListar = function (app, req, res) {
-    let connection = app.config.dbConnection();
-    let indexModel = app.app.models.indexModel;
-
-    indexModel.getBoards(connection, function (error, result) {
-        if (error) { console.log("Erro"); console.log(error) }
-        console.log("----------------------------");
-        console.log(result);
-        console.log("----------------------------");
-        res.render('index/index', {conteudo: result});
-    });
-}
-*/
 module.exports.boardListar = function (app, req, res) {
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
@@ -96,20 +107,25 @@ module.exports.boardListar = function (app, req, res) {
         indexModel.loadThirdColumn(id, connection, callback);
     }
 
+    var loadBoard = function(callback) {
+        indexModel.getBoard(id, connection, callback);
+    }
+
 
     stack.push(loadBoardList);
     stack.push(loadFirstColumn);
     stack.push(loadSecondColumn);
     stack.push(loadThirdColumn);
+    stack.push(loadBoard);
 
     async.parallel(stack, function(error, result) {
 
         if (error) { console.log("Erro"); console.log(error) }
         console.log("----------------------------");
-        console.log(result[1]);
+        console.log(result[0]);
         console.log("----------------------------");
 
-        res.render('index/index', {boards: result[0], column1: result[1], column2: result[2], column3: result[3]});
+        res.render('index/index', {boards: result[0], column1: result[1], column2: result[2], column3: result[3], board: result[4]});
       });
 }
 
