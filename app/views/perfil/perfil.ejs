@@ -21,19 +21,23 @@
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
                 <h3>Menu</h3>
             </div>
-
+    
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#">Perfil</a>
-                </li>
-                <p>Boards</p>
+                <li> <a id="" href="/perfil">Meu perfil</a></li>
                 <li>
-                    <a href="#">About</a>
+                    <div class="sidebar-header">
+                        <h4>Meus quadros</h4>
+                    </div>
                 </li>
+                <% for(let i = 0; i < boards.length; i++) {%>
+                    <li><a id="<%= boards[i].ID%>" href="/index?ID=<%= boards[i].ID %>"><%= boards[i].name %></a></li>
+                <% } %>
             </ul>
-
+            <div class="sidebar-header">
+                <button type="button" id="newBoard" class="btn btn-info" data-toggle="modal" data-target="#modalAddBoard">Criar quadro
+                </button>
+            </div>
         </nav>
-
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">

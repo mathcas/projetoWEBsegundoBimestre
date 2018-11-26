@@ -20,15 +20,19 @@
         <div class="sidebar-header">
             <span class="glyphicon glyphicon-menu-hamburger"></span>
             <h3>Menu</h3>
-            <br>
-            <h4>Boards</h4>
         </div>
 
         <ul class="list-unstyled components">
-          <%let list = boards[0];%>
-          <% for(let i = 0; i < list.length; i++) {%>
-              <li><a id="<%= list[i].ID%>" href="/index?ID=<%= list[i].ID %>"><%= list[i].name %></a></li>
-          <% } %>
+            <li> <a id="" href="/perfil">Meu perfil</a></li>
+            <li>
+                <div class="sidebar-header">
+                    <h4>Meus quadros</h4>   
+                </div>
+            </li>
+            <%let list = boards[0];%>
+            <% for(let i = 0; i < list.length; i++) {%>
+                <li><a id="<%= list[i].ID%>" href="/index?ID=<%= list[i].ID %>"><%= list[i].name %></a></li>
+            <% } %>
         </ul>
         <div class="sidebar-header">
             <button type="button" id="newBoard" class="btn btn-info" data-toggle="modal" data-target="#modalAddBoard">Criar quadro
