@@ -21,7 +21,7 @@ module.exports = function(app) {
 		let connection = app.config.dbConnection();
 		let usuariosModel = new app.app.models.usuarioDAO(connection);
 		usuariosModel.storeUsuario(values, function(error, result) {
-            res.redirect('/login');
+            res.redirect('/perfil');
 		});
 	});
 }   

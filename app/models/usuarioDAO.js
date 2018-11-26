@@ -5,12 +5,13 @@ function UsuariosDAO(connection) {
 }
 
 UsuariosDAO.prototype.usuarioAutenticar = function (usuario, callback) {
-	console.log(usuario.password);
+	
 	let senhaCriptografada = crypto.createHash("md5").update(usuario.password).digest("hex");
 	usuario.password = senhaCriptografada;
 
 	let sql = "select * from usuario where nome='" + usuario.nome + "' and password='" + usuario.password + "'";
 	this._conn.query(sql, callback);
+	console.log(this._conn.query(sql, callback));
 }
 
 
