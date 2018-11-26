@@ -29,6 +29,14 @@ module.exports = function(){
         connection.query('insert into cards set ?',conteudo, callback);
     }
 
+    this.storeCard2 = function(conteudo, connection, callback){
+        connection.query('insert into cards set ?',conteudo, callback);
+    }
+
+    this.storeCard3 = function(conteudo, connection, callback){
+        connection.query('insert into cards set ?',conteudo, callback);
+    }
+
     this.storeBoard = function(conteudo, connection, callback){
         connection.query('insert into boards set ?',conteudo, callback);
     }

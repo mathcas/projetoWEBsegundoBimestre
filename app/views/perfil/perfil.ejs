@@ -52,8 +52,38 @@
             </nav>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-xs-12" id="img_div">
+                    <div class="col-md-6 col-xs-12" id="img_div" style="background-color: #6d7fcc">
                         <h1>Meus quadros</h1>
+                        <div>
+                            <table class="table">
+                                <tr>
+                                    <th>Board</th>
+                                    <th>Coluna 1</td>
+                                    <th>Coluna 2</th>
+                                    <th>Coluna 3</th>
+                                    <th>Excluir</th>
+                                </tr>
+                                <% for(let i=0; i < boards.length; i++) {%>
+                                <tr>
+                                    <td>
+                                        <%= boards[i].name %>
+                                    </td>
+                                    <td>
+                                        <%= boards[i].first_column %>
+                                    </td>
+                                    <td>
+                                        <%= boards[i].second_column %>
+                                    </td>
+                                    <td>
+                                        <%= boards[i].third_column %>
+                                    </td>
+                                    <td>
+                                        <a href="/perfil/deleteBoard/<%= boards[i].ID %>" style="color: red;">x</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </table>
+                        </div>
                     </div>
                     <div class="col-md-6 col-xs-12" id="cadastro_div">
                         <h1>Gerenciar conta</h1>

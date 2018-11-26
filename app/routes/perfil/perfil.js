@@ -3,7 +3,8 @@ module.exports = function (app) {
 		app.app.controllers.perfil.boardListar(app, req, res);
 	});
 
-	app.post('/perfil/salvarBoard', function (req, res) {
-		app.app.controllers.perfil.boardSalvar(app, req, res);
+	app.get('/perfil/deleteBoard/:ID', function (req, res) {
+		let id = req.params.ID;
+		app.app.controllers.perfil.deleteBoard(id, app, req, res);
 	});
 }
