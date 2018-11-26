@@ -50,66 +50,57 @@
                     </div>
                 </div>  
             </nav>
-
-        <div class="container">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-xs-12" id="img_div">
-                        <h2 class="h2">Kanban-do</h2>
-                        <img src="images/login_kanban_image.png" class="img-responsive center-block" alt="kanban board">
-                        <p class="lead">Kanban-do é sua mais nova ferramenta para organização pessoal e profissional. "Your board, your way!"; aqui você terá controle de tudo que você colocar em seu board.</p>
+                        <h1>Meus quadros</h1>
                     </div>
+                    <div class="col-md-6 col-xs-12" id="cadastro_div">
+                        <h1>Gerenciar conta</h1>
+                    </div>                
                 </div>
-        </div>
-            
+            </div> 
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
+     <!-- ADD NEW BOARD MODAL -->
+
+  <div class="modal fade newCards" id="modalAddBoard" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                    <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h4 class="modal-title">Editar Candidato</h4>
+                <div class="modal-header">
+                    <h3 class="modal-title">Criar quadro</h3>
+                    <span class="close" data-dismiss="modal">&times;</span>    
                 </div>
                 <div class="modal-body">
-                    <p>teste</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>              
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalAddCard1" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                    <div class="modal-header">
-                    <span class="close" data-dismiss="modal">&times;</span>
-                    <h4 class="modal-title">New card</h4>
-                </div>
-                <div class="modal-body">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="index/salvarBoard" method="POST">    
                             <div class="form-group">
-                                <label class="col-form-label col-sm-2" for="nome">Title:</label>
+                                <label class="col-form-label col-sm-2" for="name">Título:</label>
                                 <div class="col-xs-12">
-                                    <input name="title1" id="title1" class="form-control" type="text">
+                                    <input name="name" id="name" class="form-control" type="text">
+                                </div>
+
+                                <label class="col-form-label col-md-12" for="first_column">Primeira coluna:</label>
+                                <div class="col-xs-12">
+                                    <input name="first_column" id="first_column" class="form-control" type="text">
+                                </div>
+
+                                <label class="col-form-label col-md-12" for="second_column">Segunda coluna:</label>
+                                <div class="col-xs-12">
+                                    <input name="second_column" id="second_column" class="form-control" type="text">
+                                </div>
+
+                                <label class="col-form-label col-md-12" for="third_column">Terceira coluna:</label>
+                                <div class="col-xs-12">
+                                    <input name="third_column" id="third_column" class="form-control" type="text">
                                 </div>
                             </div>
-                                    
-                            <div class="form-group">
-                                <label class="col-form-label col-md-12 ">Content:</label>
-                                <div class="col-sm-5">
-                                    <textarea class="form-control col-md-6 col-xs-12" id="content1"></textarea>
-                                </div>
-                            </div>
+                            <input type="submit" name="add1" id='add1' value="Criar!" class="btn btn-primary">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                         </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="add1">Add card</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    
                 </div>
             </div>              
         </div>

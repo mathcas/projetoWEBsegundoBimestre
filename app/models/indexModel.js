@@ -4,18 +4,18 @@ module.exports = function(){
         connection.query(sql, callback);
     }
 
-    this.loadFirstColumn = function(connection, callback){
-        let sql = 'select * from cards where boardID = 1 and state = 1';
+    this.loadFirstColumn = function(id, connection, callback){
+        let sql = 'select * from cards where state = 1 and boardID = ' + id;
         connection.query(sql, callback);
     }
 
-    this.loadSecondColumn = function(connection, callback){
-        let sql = 'select * from cards where boardID = 1 and state = 2';
+    this.loadSecondColumn = function(id, connection, callback){
+        let sql = 'select * from cards where state = 2 and boardID = ' + id;
         connection.query(sql, callback);
     }
 
-    this.loadThirdColumn = function(connection, callback){
-        let sql = 'select * from cards where boardID = 1 and state = 3';
+    this.loadThirdColumn = function(id, connection, callback){
+        let sql = 'select * from cards where state = 3 and boardID = ' + id;
         connection.query(sql, callback);
     }
     // this.getEstudante = function(connection, id, callback){

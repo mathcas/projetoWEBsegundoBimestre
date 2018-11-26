@@ -3,7 +3,6 @@ let consign = require('consign');
 let body_parser = require('body-parser');
 let expressValidator = require('express-validator');
 let cookie_parser = require('cookie-parser');
-let async = require('async');
 let app = express(); 
 
 app.set('view engine', 'ejs'); 

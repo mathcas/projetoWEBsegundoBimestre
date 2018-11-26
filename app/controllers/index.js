@@ -75,7 +75,8 @@ module.exports.boardListar = function (app, req, res) {
 module.exports.boardListar = function (app, req, res) {
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
-    let id = req.body.id;
+    var query = require('url').parse(req.url,true).query;
+    let id = query.ID;
 
     var stack = [];
 
@@ -84,15 +85,15 @@ module.exports.boardListar = function (app, req, res) {
     }
 
     var loadFirstColumn = function(callback) {
-        indexModel.loadFirstColumn(connection, callback);
+        indexModel.loadFirstColumn(id, connection, callback);
     }
 
     var loadSecondColumn = function(callback) {
-        indexModel.loadSecondColumn(connection, callback);
+        indexModel.loadSecondColumn(id, connection, callback);
     }
 
     var loadThirdColumn = function(callback) {
-        indexModel.loadThirdColumn(connection, callback);
+        indexModel.loadThirdColumn(id, connection, callback);
     }
 
 
