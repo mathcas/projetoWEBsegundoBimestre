@@ -27,7 +27,7 @@
         <ul class="list-unstyled components">
           <%let list = boards[0];%>
           <% for(let i = 0; i < list.length; i++) {%>
-              <li><a id="<%= list[i].ID%>" href=""><%= list[i].name %></a></li>
+              <li><a id="<%= list[i].ID%>" href="/index?ID=<%= list[i].ID %>"><%= list[i].name %></a></li>
           <% } %>
         </ul>
         <div class="sidebar-header">

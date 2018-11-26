@@ -75,6 +75,7 @@ module.exports.boardListar = function (app, req, res) {
 module.exports.boardListar = function (app, req, res) {
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
+    let id = req.body.id;
 
     var stack = [];
 

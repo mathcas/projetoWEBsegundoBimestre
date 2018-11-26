@@ -1,0 +1,117 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+ 
+<head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+ 
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="google" value="notranslate">
+  <link rel="icon" href="images/login_kanban_image.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>Kanban-Do - your board, your way.</title>
+  
+</head>
+ 
+<body>
+   <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+                <h3>Menu</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#">Perfil</a>
+                </li>
+                <p>Boards</p>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info" style="width: 100px;">
+                            <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
+                    </button>
+
+                    <div style="float: right;">
+                            <a class="navbar-brand" href="#" style="color: #6d7fcc">Kanban-Do</a>
+                    </div>
+                </div>  
+            </nav>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-xs-12" id="img_div">
+                        <h2 class="h2">Kanban-do</h2>
+                        <img src="images/login_kanban_image.png" class="img-responsive center-block" alt="kanban board">
+                        <p class="lead">Kanban-do é sua mais nova ferramenta para organização pessoal e profissional. "Your board, your way!"; aqui você terá controle de tudo que você colocar em seu board.</p>
+                    </div>
+                </div>
+        </div>
+            
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                    <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h4 class="modal-title">Editar Candidato</h4>
+                </div>
+                <div class="modal-body">
+                    <p>teste</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>              
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAddCard1" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                    <div class="modal-header">
+                    <span class="close" data-dismiss="modal">&times;</span>
+                    <h4 class="modal-title">New card</h4>
+                </div>
+                <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-form-label col-sm-2" for="nome">Title:</label>
+                                <div class="col-xs-12">
+                                    <input name="title1" id="title1" class="form-control" type="text">
+                                </div>
+                            </div>
+                                    
+                            <div class="form-group">
+                                <label class="col-form-label col-md-12 ">Content:</label>
+                                <div class="col-sm-5">
+                                    <textarea class="form-control col-md-6 col-xs-12" id="content1"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="add1">Add card</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>              
+        </div>
+    </div>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/scripts/script.js"></script>
+</body>
+</html>
