@@ -12,10 +12,16 @@ module.exports = function(app) {
 			return;
 		}
 
+        var values = {
+            'nome': usuario.nome,
+            'username': usuario.username,
+            'password': usuario.password
+        };
+
 		let connection = app.config.dbConnection();
 		let usuariosModel = new app.app.models.usuarioDAO(connection);
-		usuariosModel.storeUsuario(usuario, function(error, result) {
-			res.redirect('/');
+		usuariosModel.storeUsuario(values, function(error, result) {
+            res.redirect('/login');
 		});
 	});
 }   

@@ -15,6 +15,7 @@ UsuariosDAO.prototype.usuarioAutenticar = function (usuario, callback) {
 
 
 UsuariosDAO.prototype.storeUsuario = function (usuario, callback) {
+    console.log(usuario);
 	let senhaCriptografada = crypto.createHash("md5").update(usuario.password).digest("hex");
 	usuario.password = senhaCriptografada;
 	this._conn.query('insert into usuario set ?', usuario, callback);

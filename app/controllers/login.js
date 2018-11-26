@@ -1,7 +1,7 @@
 module.exports.usuarioAutenticar = function (app, req, res) {
 	let usuario = req.body;
 	console.log("Controller", usuario);
-	req.assert("user", "Usuário é obrigatório").notEmpty();
+	req.assert("username", "Usuário é obrigatório").notEmpty();
 	req.assert("password", "Password é obrigatório").notEmpty();
 	let erros = req.validationErrors();
 	if (erros) {
