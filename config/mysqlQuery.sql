@@ -29,7 +29,9 @@ CREATE TABLE IF NOT EXISTS cards (
 	state VARCHAR(1),
 	description VARCHAR(255),
 	boardID int,
+	userID int,
 	timestamp TIMESTAMP,
+	FOREIGN KEY (userID) REFERENCES users(ID) ON DELETE CASCADE,
 	FOREIGN KEY (boardID) REFERENCES boards(ID) ON DELETE CASCADE
 );
 

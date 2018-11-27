@@ -13,7 +13,7 @@ module.exports.boardListar = function (app, req, res) {
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
 
-    indexModel.getBoards(connection, function (error, result) {
+    indexModel.getBoards(req.cookies.userID, connection, function (error, result) {
 
         if (error) { console.log("Erro"); console.log(error) }
 

@@ -1,27 +1,28 @@
 module.exports = function(){
     //--------------- METODOS GETS ---------------
-    this.getBoards = function(connection, callback){
-        let sql = 'select * from boards';
+    this.getBoards = function(userID, connection, callback){
+
+        let sql = 'select * from boards where userID = ' + userID;
         connection.query(sql, callback);
     }
 
-    this.getBoard = function(id, connection, callback){
-        let sql = 'select * from boards where ID = ' + id;
+    this.getBoard = function(IDs, connection, callback){
+        let sql = 'select * from boards where ID = ' + IDs.boardID + ' and userID = ' + IDs.userID;
         connection.query(sql, callback);
     }
 
-    this.loadFirstColumn = function(id, connection, callback){
-        let sql = 'select * from cards where state = 1 and boardID = ' + id;
+    this.loadFirstColumn = function(IDs, connection, callback){
+        let sql = 'select * from cards where state = 1 and boardID = ' + IDs.boardID + ' and userID = ' + IDs.userID;
         connection.query(sql, callback);
     }
 
-    this.loadSecondColumn = function(id, connection, callback){
-        let sql = 'select * from cards where state = 2 and boardID = ' + id;
+    this.loadSecondColumn = function(IDs, connection, callback){
+        let sql = 'select * from cards where state = 2 and boardID = ' + IDs.boardID + ' and userID = ' + IDs.userID;
         connection.query(sql, callback);
     }
 
-    this.loadThirdColumn = function(id, connection, callback){
-        let sql = 'select * from cards where state = 3 and boardID = ' + id;
+    this.loadThirdColumn = function(IDs, connection, callback){
+        let sql = 'select * from cards where state = 3 and boardID = ' + IDs.boardID + ' and userID = ' + IDs.userID;
         connection.query(sql, callback);
     }
 //--------------- METODOS POSTs ---------------

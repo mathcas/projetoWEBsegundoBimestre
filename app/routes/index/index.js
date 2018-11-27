@@ -4,7 +4,7 @@ module.exports = function (app) {
 			app.app.controllers.index.boardListar(app, req, res);
 		}
 		else {
-			req.send('vai logar');
+			res.redirect('/login');
 		}		
 	});
 
@@ -13,7 +13,7 @@ module.exports = function (app) {
 			app.app.controllers.index.storeBoard(app, req, res);
 		}
 		else {
-			req.send('vai logar');
+			res.redirect('/login');
 		}	
 	});
 
@@ -22,7 +22,7 @@ module.exports = function (app) {
 			app.app.controllers.index.storeCard1(app, req, res);
 		}
 		else {
-			req.send('vai logar');
+			res.redirect('/login');
 		}	
 	});
 
@@ -31,7 +31,7 @@ module.exports = function (app) {
 			app.app.controllers.index.storeCard2(app, req, res);
 		}
 		else {
-			req.send('vai logar');
+			res.redirect('/login');
 		}
 	});
 
@@ -40,7 +40,7 @@ module.exports = function (app) {
 			app.app.controllers.index.storeCard3(app, req, res);
 		}
 		else {
-			req.send('vai logar');
+			res.redirect('/login');
 		}
 	});
 }

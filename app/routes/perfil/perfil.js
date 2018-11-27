@@ -4,7 +4,7 @@ module.exports = function (app) {
 			app.app.controllers.perfil.boardListar(app, req, res);
 		}
 		else {
-			req.send('vai logar');
+			res.redirect('/login');
 		}	
 	});
 
@@ -14,7 +14,7 @@ module.exports = function (app) {
 			app.app.controllers.perfil.deleteBoard(id, app, req, res);
 		}
 		else {
-			req.send('vai logar');
+			res.redirect('/login');
 		}	
 	});
 }

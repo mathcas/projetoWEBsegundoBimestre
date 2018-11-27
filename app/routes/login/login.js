@@ -1,6 +1,8 @@
 module.exports = function(app) {
 	app.get('/login', function(req, res){
 		req.session.autorizado = false;
+		res.clearCookie("userID");
+		res.clearCookie("boardID");
 		res.render('login/login');
 	});
 
