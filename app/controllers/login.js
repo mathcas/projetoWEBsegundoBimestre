@@ -1,11 +1,11 @@
 module.exports.usuarioAutenticar = function (app, req, res) {
 	let usuario = req.body;
-	console.log("Controller", usuario);
+
 	req.assert("username", "Usuário é obrigatório").notEmpty();
 	req.assert("password", "Password é obrigatório").notEmpty();
 	let erros = req.validationErrors();
 	if (erros) {
-		res.render('home', {erros: erros, usuario: usuario});
+		res.send(erros);
 		return;
 	}
 	let connection = app.config.dbConnection();
@@ -16,16 +16,17 @@ module.exports.usuarioAutenticar = function (app, req, res) {
 			console.log("Erro: ", error);
 			console.error("Usuário não autenticado");
 			res.redirect('/');
+			req.session.autorizado = false;
 			return;
 		}
 		if(result.length > 0) {
 			req.session.autorizado = true;
-			res.redirect('/estudantes');
-			return;
+			console.log(result[0]);
+			res.cookie('userID', result[0].ID);
+			res.redirect('/perfil');
 		} else {
 			res.send("usuário ou password inexistente");
 			req.session.autorizado = false;
-			//res.render('home', {erros: {}});
 		}
 		
 	});

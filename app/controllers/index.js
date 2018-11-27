@@ -31,8 +31,6 @@ module.exports.storeCard1 = function (app, req, res) {
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
     let card = req.body;
-    var query = require('url').parse(req.url,true).query;
-    let id = query.ID;
 
     //TITULO DO CARD
     let title = card.title1;
@@ -56,8 +54,6 @@ module.exports.storeCard2 = function (app, req, res) {
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
     let card = req.body;
-    var query = require('url').parse(req.url,true).query;
-    let id = query.ID;
 
     //TITULO DO CARD
     let title = card.title2;
@@ -81,8 +77,6 @@ module.exports.storeCard3 = function (app, req, res) {
     let connection = app.config.dbConnection();
     let indexModel = app.app.models.indexModel;
     let card = req.body;
-    var query = require('url').parse(req.url,true).query;
-    let id = query.ID;
 
     //TITULO DO CARD
     let title = card.title3;

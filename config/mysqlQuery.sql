@@ -5,9 +5,9 @@ USE dsw;
 
 CREATE TABLE IF NOT EXISTS users (
     ID int AUTO_INCREMENT PRIMARY KEY, 
-    username VARCHAR(20), 
-    email VARCHAR(25), 
-    password VARCHAR(20), 
+    username VARCHAR(255), 
+    email VARCHAR(255), 
+    password VARCHAR(255), 
     timestamp TIMESTAMP
 );
 
@@ -15,19 +15,19 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS boards (
 	ID int AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(30),
-	first_column VARCHAR(30),
-	second_column VARCHAR(30),
-	third_column VARCHAR(30),
-	timestamp TIMESTAMP/*,
+	first_column VARCHAR(255),
+	second_column VARCHAR(255),
+	third_column VARCHAR(255),
+	timestamp TIMESTAMP,
 	userID int,
-	FOREIGN KEY (userID) REFERENCES users(ID) ON DELETE CASCADE*/
+	FOREIGN KEY (userID) REFERENCES users(ID) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS cards (
 	ID int AUTO_INCREMENT PRIMARY KEY,
-	title VARCHAR(20),
+	title VARCHAR(255),
 	state VARCHAR(1),
-	description VARCHAR(240),
+	description VARCHAR(255),
 	boardID int,
 	timestamp TIMESTAMP,
 	FOREIGN KEY (boardID) REFERENCES boards(ID) ON DELETE CASCADE

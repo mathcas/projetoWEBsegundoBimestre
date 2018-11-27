@@ -15,27 +15,6 @@
 
 </head>
 <body>
-        <section>
-            <p>Nome:</p>
-            <p name="nome">Nome:</p>
-            <p>Email:</p>
-            <p name="username">Email:</p>
-            <p>Logado</p>
-        </section>
-        <section>
-                <% if(erros.length > 0) { %>
-                <section class="alert alert-danger">
-                    <p>Atenção!</p>
-                    <ul>
-                        <% for(let i = 0; i < erros.length; i++){ %>
-                        <li>
-                            <%= erros[i].msg %>
-                        </li>
-                        <% } %>
-                    </ul>
-                </section>
-                <% } %>
-        </section>
     <div class="wrapper">
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light list-inline">
@@ -62,18 +41,18 @@
                     <div>
                         <form action="/usuario/salvar" method="POST" id="form_cadastro">
                             <div class="form-group">
-                                <label for="userName">Nome de usuário</label>
-                                <input type="text" name="nome" id="userName" class="form-control" placeholder="Usuário" value="<%= usuario.nome %>">
+                                <label for="username">Nome de usuário</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Nome de usuário" value="">
                             </div>
                             <div class="form-group">
                                 <label for="newUserEmail">Email</label>
-                                <input type="email" class="form-control" name="username" id="newUserEmail" placeholder="Digite seu email" value="<%= usuario.username %>">
+                                <input type="email" class="form-control" name="email" id="newUserEmail" placeholder="Digite seu email" value="">
                             </div>
                             <div class="form-group">
                                 <label for="newUserPsw1">Senha</label>
                                 <div class="inlineinput">
-                                    <input type="password" name="password" id="newUserPsw1" class="form-control" placeholder="Digite sua senha" value="<%= usuario.password %>">
-                                    <input type="password" name="confirmPassword" id="newUserPsw2" class="form-control" placeholder="Confirmar senha" style="width: 45%;" value="<%= usuario.password %>">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Digite sua senha" value="">
+                                    <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirmar senha" value="">
                                 </div>
                             </div>
                             <input type="submit" name="submit_cadastro" id="cadastrar_btn" value="Cadastrar" class="btn btn-info cadastrarBtn"> 
@@ -147,14 +126,14 @@
                             <div class="form-group">
                                 <label class="col-form-label col-sm-2" for="nome">Usuário:</label>
                                 <div class="col-xs-12">
-                                    <input name="user" id="userID" class="form-control" type="text">
+                                    <input name="username" id="username" class="form-control" type="text">
                                 </div>
                             </div>
                                     
                             <div class="form-group">
                                 <label class="col-form-label col-sm-2" for="nome">Senha:</label>
                                 <div class="col-xs-12">
-                                    <input name="psw" id="pswID" class="form-control" type="password">
+                                    <input name="password" id="password" class="form-control" type="password">
                                 </div>
                             </div>
                             <div class="modal-footer">

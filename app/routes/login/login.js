@@ -1,13 +1,15 @@
 module.exports = function(app) {
 	app.get('/login', function(req, res){
-		res.render('login/login', {erros: {}, usuario: {}});
+		req.session.autorizado = false;
+		res.render('login/login');
 	});
 
+	//FUNCIONANDO NAO MEXER
 	app.post('/usuario/salvar', function(req, res) {
 		let usuario = req.body;
 
-		req.assert("nome", "Nome é obrigatório").notEmpty();
-		req.assert("username", "Usuário é obrigatório").notEmpty();
+		req.assert("username", "Nome de usuário é obrigatório").notEmpty();
+		req.assert("email", "Email é obrigatório").notEmpty();
 		req.assert("password", "Senha é obrigatória").notEmpty();
 
 		var erros = req.validationErrors();
@@ -17,8 +19,8 @@ module.exports = function(app) {
 		}
 
         var values = {
-            'nome': usuario.nome,
             'username': usuario.username,
+            'email': usuario.email,
             'password': usuario.password
         };
 
